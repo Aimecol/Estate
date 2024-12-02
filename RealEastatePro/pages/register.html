@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Login - RealEstatePro</title>
+    <link rel="stylesheet" href="../css/login.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.1/css/all.min.css"
+    />
+  </head>
+  <body>
+    <div class="login-container">
+      <div class="login-header">
+        <h1>Create Your Account</h1>
+        <p>Join Us and explore premium properties.</p>
+      </div>
+      <form id="loginForm" method="post" action="">
+        <div class="input-group">
+          <input type="text" id="fname" placeholder=" " required />
+          <label for="fname">First name</label>
+        </div>
+        <div class="input-group">
+          <input type="text" id="lname" placeholder=" " required />
+          <label for="lname">Last name</label>
+        </div>
+        <div class="input-group">
+          <input type="text" id="phone" placeholder=" " required />
+          <label for="phone">Phone Number</label>
+        </div>
+        <div class="input-group">
+          <input type="email" id="email" placeholder=" " required />
+          <label for="email">Email</label>
+          <div class="error-message" id="emailError">
+            Please enter a valid email address
+          </div>
+        </div>
+        <div class="input-group">
+          <input type="password" id="password" placeholder=" " required />
+          <label for="password">Password</label>
+          <span class="toggle-password"><i class="fas fa-eye"></i></span>
+          <div class="error-message" id="passwordError">
+            Password must be at least 8 characters
+          </div>
+        </div>
+        <div class="input-group">
+          <input type="password" id="cpassword" placeholder=" " required />
+          <label for="cpassword">Confirm Password</label>
+        </div>
+
+        <div class="remember-forgot">
+          <label class="remember-me">
+            <input type="checkbox" id="remember" />
+            <span>I agree to the <a href="#">Terms & Conditions</a></span>
+          </label>
+        </div>
+        <button type="submit" class="login-button">Sign up</button>
+
+        <footer>
+          <p>Already have an account? <a href="login.html">Login here</a>.</p>
+        </footer>
+      </form>
+    </div>
+
+    <script src="../js/login.js"></script>
+    <script>
+      const form = document.getElementById("registration-form");
+      form.addEventListener("submit", function (e) {
+        const password = document.getElementById("password").value;
+        const confirmPassword =
+          document.getElementById("cpassword").value;
+
+        if (password !== confirmPassword) {
+          alert("Passwords do not match!");
+          e.preventDefault();
+        }
+      });
+    </script>
+  </body>
+</html>

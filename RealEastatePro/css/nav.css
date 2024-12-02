@@ -1,0 +1,353 @@
+/* General Reset */
+* {
+  margin: 0;
+  padding: 0; 
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Roboto", sans-serif;
+  background-color: #dcdee1;
+}
+
+.header {
+  background: linear-gradient(90deg, #2c3e50, #4ca1af);
+  color: #fff;
+  padding: 1rem 2rem;
+}
+
+.header .nav-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #f4e04d;
+  text-decoration: none;
+}
+
+.nav-links {
+  display: flex;
+  list-style: none;
+  list-style: none;
+}
+
+.nav-links li {
+  margin-left: 1.5rem;
+}
+
+.nav-links a {
+  text-decoration: none;
+  color: #fff;
+  font-size: 1rem;
+  transition: color 0.3s ease-in-out;
+}
+
+.nav-links a:hover {
+  color: #f4e04d;
+}
+
+.cta {
+  padding: 0.5rem 1rem;
+  border: 1px solid #fff;
+  border-radius: 25px;
+  transition: background-color 0.3s, color 0.3s ease-in-out;
+}
+
+.header .cta.secondary {
+    background-color: #f4e04d;
+    color: #2c3e50;
+    transition: background-color 0.3s, color 0.3s ease-in-out;
+}
+
+.header .cta.secondary:hover {
+  background-color: #f0c84d;
+  color: #2c3e50;
+}
+
+.header .cta:hover {
+  background-color: #f4e04d;
+  color: #2c3e50;
+}
+
+.cta.logout {
+  background-color: #e74c3c;
+  color: #fff;
+  padding: 0.5rem 1rem;
+  border: none;
+  border-radius: 25px;
+  transition: background-color 0.3s, color 0.3s ease-in-out;
+}
+
+.cta.logout:hover {
+  background-color: #c0392b;
+  color: #f4e04d;
+}
+
+.burger {
+  display: none;
+  cursor: pointer;
+  flex-direction: column;
+}
+
+.burger .line {
+  width: 25px;
+  height: 3px;
+  background: #fff;
+  margin: 3px 0;
+}
+
+@media (max-width: 768px) {
+  .nav-links {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    top: 60px;
+    right: 0;
+    background-color: #4ca1af;
+    width: 100%;
+    text-align: center;
+    z-index: 5;
+    transform: translateY(-150%);
+    opacity: 0;
+    transition: all 0.3s ease-in-out;
+  }
+
+  .nav-links li {
+    margin: 1rem 0;
+  }
+
+  .burger {
+    display: flex;
+  }
+
+  .profile-dropdown .dropdown {
+    position: static;
+    margin-top: 0;
+    width: 100%;
+    background: #4ca1af;
+    box-shadow: none;
+    border-radius: 0;
+  }
+
+  .profile-dropdown .dropdown a {
+    padding: 1rem;
+  }
+}
+
+.nav-active {
+  transform: translateX(0%);
+  opacity: 1;
+}
+
+.profile-dropdown {
+  position: relative;
+}
+
+.profile-dropdown .dropdown {
+  position: absolute;
+  display: none;
+  background: #34495e;
+  top: 100%;
+  right: 0;
+  margin-top: 0.5rem;
+  padding: 0.5rem 0;
+  border-radius: 5px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  z-index: 10;
+  min-width: 200px;
+}
+
+.profile-dropdown:hover .dropdown {
+  display: block;
+}
+
+.profile-dropdown .dropdown li {
+  text-align: left;
+  padding: 0;
+}
+
+.profile-dropdown .dropdown a {
+  display: block;
+  color: #f4f4f4;
+  padding: 0.5rem 1rem;
+  text-decoration: none;
+  transition: background 0.3s ease;
+}
+
+.profile-dropdown .dropdown a:hover {
+  background: #2c3e50;
+  color: #f4e04d;
+}
+
+/* Icon Styling for Profile Dropdown */
+.profile-dropdown a i {
+  margin-left: 0.5rem;
+}
+
+.nav-links li .dropdown {
+  position: absolute;
+  display: none;
+  background: #34495e;
+  margin-top: 1rem;
+  padding: 0.5rem;
+  border-radius: 5px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.nav-links li:hover .dropdown {
+  display: block;
+}
+
+.nav-links li .dropdown a {
+  color: #f4f4f4;
+  display: block;
+  padding: 0.5rem 1rem;
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+.nav-links li .dropdown a:hover {
+  background: #2c3e50;
+  color: #f4e04d;
+}
+
+/* Footer Styling */
+footer {
+  background: #34495e;
+  color: #f4f4f4;
+  padding: 2rem 5%;
+  font-family: 'Roboto', sans-serif;
+}
+
+footer .footer-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+  justify-content: space-between;
+}
+
+footer .footer-container .footer-col {
+  flex: 1;
+  min-width: 250px;
+}
+
+footer .footer-container .footer-col h4 {
+  font-size: 1.2rem;
+  margin-bottom: 1rem;
+  color: #f4e04d;
+}
+
+footer .footer-container .footer-col p {
+  line-height: 1.6;
+}
+
+footer .footer-container .footer-col a {
+  color: #f4f4f4;
+  text-decoration: none;
+  display: block;
+  margin: 0.5rem 0;
+  transition: color 0.3s ease;
+}
+
+footer .footer-container .footer-col a:hover {
+  color: #f4e04d;
+}
+
+footer .footer-container .logo {
+  font-size: 1.8rem;
+  font-weight: bold;
+  color: #f4e04d;
+  text-decoration: none;
+  margin-bottom: 1rem;
+  display: inline-block;
+}
+
+footer .footer-container .social-icons {
+  margin-top: 1rem;
+}
+
+footer .footer-container .social-icons a {
+  display: inline-block;
+  margin-right: 0.5rem;
+  color: #f4e04d;
+  font-size: 1.2rem;
+  transition: color 0.3s ease;
+}
+
+footer .footer-container .social-icons a:hover {
+  color: #f4f4f4;
+}
+
+footer .footer-container .quick-links ul {
+  list-style: none;
+  padding: 0;
+}
+
+footer .footer-container .quick-links ul li {
+  margin-bottom: 0.5rem;
+}
+
+footer .footer-container .contact-info p {
+  margin-bottom: 0.5rem;
+}
+
+footer .footer-container .newsletter-form {
+  display: flex;
+  align-items: center;
+  margin-top: 1rem;
+}
+
+footer .footer-container .newsletter-form input {
+  flex: 1;
+  padding: 0.5rem;
+  border: none;
+  border-radius: 5px 0 0 5px;
+  outline: none;
+}
+
+footer .footer-container .newsletter-form button {
+  padding: 0.5rem 1rem;
+  border: none;
+  border-radius: 0 5px 5px 0;
+  background: #f4e04d;
+  color: #34495e;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+footer .footer-container .newsletter-form button:hover {
+  background: #f0c84d;
+}
+
+footer .footer-bottom {
+  margin-top: 2rem;
+  text-align: center;
+  font-size: 0.9rem;
+  border-top: 1px solid #4ca1af;
+  padding-top: 1rem;
+}
+
+footer .footer-bottom a {
+  color: #f4e04d;
+  text-decoration: none;
+  margin: 0 0.5rem;
+}
+
+footer .footer-bottom a:hover {
+  text-decoration: underline;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  footer .footer-container .footer-container {
+    flex-direction: column;
+  }
+
+  footer .footer-container .footer-col {
+    margin-bottom: 1.5rem;
+  }
+}

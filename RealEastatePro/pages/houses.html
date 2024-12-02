@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="../css/nav.css" />
+    <link rel="stylesheet" href="../css/houses.css" />
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.1/css/all.min.css"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <header class="header">
+      <div class="nav-container">
+        <a href="../index.html" class="logo">RealEstatePro</a>
+        <nav>
+          <ul class="nav-links">
+            <li><a href="../index.html">Home</a></li>
+            <li><a href="./houses.html">Houses</a></li>
+            <li><a href="./about.html">About Us</a></li>
+            <li><a href="./contact.html">Contact</a></li>
+            <li><a href="./login.html" class="cta">Login</a></li>
+            <li><a href="./register.html" class="cta secondary">Register</a></li>
+          </ul>
+        </nav>
+        <div class="burger">
+          <div class="line"></div>
+          <div class="line"></div>
+          <div class="line"></div>
+        </div>
+      </div>
+    </header>
+
+    <section class="houses-page">
+      <!-- Filter Section -->
+      <div class="houses-header">
+        <h1>Explore Properties</h1>
+        <p>Discover your dream home from our wide selection of houses.</p>
+        <div class="filters">
+          <select class="filter" id="location-filter">
+            <option value="all">All Locations</option>
+            <option value="kigali">Kigali</option>
+            <option value="nairobi">Nairobi</option>
+            <option value="arusha">Arusha</option>
+          </select>
+          <select class="filter" id="price-filter">
+            <option value="all">All Prices</option>
+            <option value="below-100k">Below $100,000</option>
+            <option value="100k-500k">$100,000 - $500,000</option>
+            <option value="above-500k">Above $500,000</option>
+          </select>
+        </div>
+      </div>
+
+      <!-- Properties Section -->
+      <div class="houses-grid">
+        <!-- dynamic cards -->
+      </div>
+
+      <!-- Pagination -->
+      <div class="pagination">
+        <button class="btn prev-page">Previous</button>
+        <span class="page-info"></span>
+        <button class="btn next-page">Next</button>
+      </div>
+    </section>
+
+    <footer>
+      <div class="footer-container">
+        <!-- Column 1: Logo and About -->
+        <div class="footer-col about">
+          <a href="#" class="logo">RealEstatePro</a>
+          <p>
+            RealEstatePro connects buyers and sellers with the best properties
+            worldwide. Find your dream home or list your property with ease.
+          </p>
+          <div class="social-icons">
+            <a href="#"><i class="fab fa-facebook-f"></i></a>
+            <a href="#"><i class="fab fa-twitter"></i></a>
+            <a href="#"><i class="fab fa-instagram"></i></a>
+            <a href="#"><i class="fab fa-linkedin-in"></i></a>
+          </div>
+        </div>
+
+        <!-- Column 2: Quick Links -->
+        <div class="footer-col quick-links">
+          <h4>Quick Links</h4>
+          <ul>
+            <li>
+              <a href="../index.html">Home</a>
+            </li>
+            <li>
+              <a href="./houses.html">Houses</a>
+            </li>
+            <li>
+              <a href="#sell">Add a Listing</a>
+            </li>
+            <li>
+              <a href="./about.html">About Us</a>
+            </li>
+            <li>
+              <a href="./contact.html">Contact</a>
+            </li>
+          </ul>
+        </div>
+
+        <!-- Column 3: Contact Info -->
+        <div class="footer-col contact-info">
+          <h4>Contact Us</h4>
+          <p><i class="fas fa-map-marker-alt"></i> Kigali, Rwanda</p>
+          <p><i class="fas fa-phone-alt"></i> +250 788 123 456</p>
+          <p><i class="fas fa-envelope"></i> support@realestatepro.com</p>
+        </div>
+
+        <!-- Column 4: Newsletter -->
+        <div class="footer-col newsletter">
+          <h4>Stay Updated</h4>
+          <p>
+            Subscribe to our newsletter for the latest updates and exclusive
+            offers.
+          </p>
+          <form action="#" class="newsletter-form">
+            <input type="email" placeholder="Your email address" required />
+            <button type="submit"><i class="fas fa-paper-plane"></i></button>
+          </form>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <p>&copy; 2024 RealEstatePro. All rights reserved.</p>
+        <p>
+          <a href="#terms">Terms & Conditions</a> |
+          <a href="#privacy">Privacy Policy</a>
+        </p>
+      </div>
+    </footer>
+
+    <script src="../js/nav.js"></script>
+    <script src="../js/houses.js"></script>
+  </body>
+</html>

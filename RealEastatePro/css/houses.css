@@ -1,0 +1,127 @@
+/* Houses Page Styling */
+.houses-page {
+  padding: 2rem 5%;
+}
+
+.houses-header {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.houses-header h1 {
+  font-size: 2.5rem;
+  color: #34495e;
+}
+
+.houses-header p {
+  font-size: 1.2rem;
+  color: #7f8c8d;
+}
+
+.filters {
+  margin-top: 1rem;
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  width: 100%;
+}
+
+.filter {
+  flex: 1;
+  outline: none;
+  padding: 0.5rem 1rem;
+  border: 1px solid #bdc3c7;
+  border-radius: 5px;
+}
+
+/* Houses Grid */
+.houses-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 1.5rem;
+  margin-top: 2rem;
+}
+
+.house-card {
+  background: #fff;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.house-card:hover {
+  transform: scale(1.05);
+}
+
+.house-card img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+}
+
+.house-details {
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+}
+
+.house-details h3 {
+  font-size: 1.2rem;
+  color: #34495e;
+  margin-bottom: 0.5rem;
+}
+
+.house-details .price {
+  color: #27ae60;
+  font-weight: bold;
+}
+
+.house-details .location {
+  font-size: 0.9rem;
+}
+
+.house-details .btn {
+  max-width: 150px;
+  text-align: center;
+  margin-top: 1rem;
+  text-decoration: none;
+  background: linear-gradient(to left, #4ca1af, #2c3e50);
+  color: #fff;
+  padding: 0.5rem 1.5rem;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.house-details .btn:hover {
+  background: linear-gradient(to right, #4ca1af, #2c3e50);
+}
+
+/* Pagination */
+.pagination {
+  margin-top: 2rem;
+  text-align: center;
+}
+
+.pagination .btn {
+  background: #34495e;
+  color: #fff;
+  padding: 0.5rem 1.5rem;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.pagination .btn:hover {
+  background: #2c3e50;
+}
+
+.page-info {
+  margin: 0 1rem;
+  font-size: 1rem;
+  color: #34495e;
+}
+

@@ -1,0 +1,628 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Real Estate Agents</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <!-- Previous CSS styles remain the same -->
+    <style>
+        :root {
+            --primary-color: #2563eb;
+            --success-color: #10b981;
+            --warning-color: #f59e0b;
+            --error-color: #ef4444;
+            --text-color: #2c3e50;
+            --border-color: #e2e8f0;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Inter', sans-serif;
+        }
+
+        body {
+            background-color: #dcdee1;
+            color: #2c3e50;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        .progress-bar {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 3rem;
+            position: relative;
+        }
+
+        .progress-bar::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 0;
+            right: 0;
+            height: 2px;
+            background: var(--border-color);
+            z-index: 1;
+        }
+
+        .progress-step {
+            position: relative;
+            z-index: 2;
+            background: #eee;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 2px solid #2c3e50;
+        }
+
+        .progress-step.active {
+            border-color: #4ca1af;
+            color: #2c3e50;
+        }
+
+        .progress-step.completed {
+            background: linear-gradient(90deg, #2c3e50, #4ca1af);
+            border-color: #2c3e50;
+            color: white;
+        }
+
+        .form-section {
+            background: #eee;
+            padding: 2rem;
+            border-radius: 1rem;
+            box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1);
+            margin-bottom: 2rem;
+        }
+
+        .form-section h2 {
+            margin-bottom: 1.5rem;
+            color: #2c3e50;
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 500;
+        }
+
+        .form-group input,
+        .form-group textarea,
+        .form-group select {
+            width: 100%;
+            padding: 0.75rem;
+            border: 1px solid #0002;
+            background: #eee;
+            border-radius: 0.5rem;
+            font-size: 1rem;
+        }
+
+        .form-group textarea {
+            min-height: 150px;
+            resize: vertical;
+        }
+
+        .image-upload-container {
+            border: 2px dashed var(--border-color);
+            padding: 2rem;
+            text-align: center;
+            border-radius: 0.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .image-preview {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+
+        .image-preview-item {
+            position: relative;
+            aspect-ratio: 1;
+            border-radius: 0.5rem;
+            overflow: hidden;
+        }
+
+        .image-preview-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .image-preview-item .remove-image {
+            position: absolute;
+            top: 0.5rem;
+            right: 0.5rem;
+            background: rgba(0, 0, 0, 0.5);
+            color: white;
+            font-weight: 700;
+            border: none;
+            border-radius: 50%;
+            width: 24px;
+            height: 24px;
+            cursor: pointer;
+        }
+
+        .safety-tips {
+            background: #dcdee1;
+            padding: 1.5rem;
+            border-radius: 0.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .safety-tips h3 {
+            color: #2c3e50;
+            margin-bottom: 1rem;
+        }
+
+        .safety-tips ul {
+            list-style-position: inside;
+            margin-left: 1rem;
+        }
+
+        .btn {
+            padding: 0.75rem 1.5rem;
+            border: none;
+            border-radius: 0.5rem;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .btn-primary {
+            background-color: #2c3e50;
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background-color: #4ca1af;
+        }
+
+        .btn-outline {
+            border: 1px solid #2c3e50;
+            color: #2c3e50;
+            background: transparent;
+        }
+        
+        .btn-outline:hover {
+            background-color: #4ca1af;
+            border: 1px solid #4ca1af;
+            color: #fff;
+        }
+
+        .buttons-container {
+            display: flex;
+            gap: 1rem;
+            justify-content: flex-end;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 1rem;
+            }
+
+            .form-section {
+                padding: 1.5rem;
+            }
+        }
+        /* ... Previous styles ... */
+        .form-section {
+            display: none;
+        }
+
+        .form-section.active {
+            display: block;
+        }
+
+        .step-title {
+            text-align: center;
+            margin-bottom: 2rem;
+            color: #2c3e50;
+        }
+
+        .progress-label {
+            position: absolute;
+            top: 45px;
+            font-size: 0.875rem;
+            color: var(--text-color);
+            width: 120px;
+            text-align: center;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .validation-error {
+            color: var(--error-color);
+            font-size: 0.875rem;
+            margin-top: 0.5rem;
+            display: none;
+        }
+
+        .error {
+            border-color: var(--error-color) !important;
+        }
+
+        .form-section-inner {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .summary-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1rem;
+            margin-bottom: 2rem;
+        }
+
+        .summary-item {
+            padding: 1rem;
+            background: #f8fafc;
+            border-radius: 0.5rem;
+        }
+
+        .summary-item h4 {
+            color: #2c3e50;
+            margin-bottom: 0.5rem;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="progress-bar">
+            <div class="progress-step completed" data-step="1">
+                1
+                <span class="progress-label">Basic Info</span>
+            </div>
+            <div class="progress-step" data-step="2">
+                2
+                <span class="progress-label">Details & Description</span>
+            </div>
+            <div class="progress-step" data-step="3">
+                3
+                <span class="progress-label">Photos</span>
+            </div>
+            <div class="progress-step" data-step="4">
+                4
+                <span class="progress-label">Review & Submit</span>
+            </div>
+        </div>
+
+        <form id="propertyListingForm">
+            <!-- Step 1: Basic Information -->
+            <section class="form-section active" data-step="1">
+                <h2 class="step-title">Basic Property Information</h2>
+                <div class="form-section-inner">
+                    <div class="form-group">
+                        <label for="propertyType">Property Type*</label>
+                        <select id="propertyType" required>
+                            <option value="">Select property type</option>
+                            <option value="house">House</option>
+                            <option value="apartment">Apartment</option>
+                            <option value="condo">Condo</option>
+                            <option value="townhouse">Townhouse</option>
+                        </select>
+                        <div class="validation-error">Please select a property type</div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="address">Full Address*</label>
+                        <input type="text" id="address" required>
+                        <div class="validation-error">Please enter the full address</div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="price">Asking Price ($)*</label>
+                        <input type="number" id="price" required min="0" step="1000">
+                        <div class="validation-error">Please enter a valid price</div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Step 2: Detailed Information -->
+            <section class="form-section" data-step="2">
+                <h2 class="step-title">Property Details & Description</h2>
+                <div class="form-section-inner">
+                    <div class="form-group">
+                        <label for="bedrooms">Number of Bedrooms*</label>
+                        <input type="number" id="bedrooms" required min="0">
+                        <div class="validation-error">Please enter the number of bedrooms</div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="bathrooms">Number of Bathrooms*</label>
+                        <input type="number" id="bathrooms" required min="0" step="0.5">
+                        <div class="validation-error">Please enter the number of bathrooms</div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="squareFeet">Square Feet*</label>
+                        <input type="number" id="squareFeet" required min="0">
+                        <div class="validation-error">Please enter the square footage</div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="description">Property Description*</label>
+                        <textarea id="description" required></textarea>
+                        <div class="validation-error">Please enter a description</div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Step 3: Photo Upload -->
+            <section class="form-section" data-step="3">
+                <h2 class="step-title">Property Photos</h2>
+                <div class="form-section-inner">
+                    <div class="image-upload-container" id="dropZone">
+                        <p>Drag and drop images here or</p>
+                        <input type="file" id="imageUpload" multiple accept="image/*" style="display: none">
+                        <button type="button" class="btn btn-primary" onclick="document.getElementById('imageUpload').click()">
+                            Select Images
+                        </button>
+                        <p class="mt-2">Maximum 20 images, each up to 5MB</p>
+                    </div>
+                    <div class="image-preview" id="imagePreview"></div>
+                </div>
+            </section>
+
+            <!-- Step 4: Review -->
+            <section class="form-section" data-step="4">
+                <h2 class="step-title">Review Your Listing</h2>
+                <div class="form-section-inner">
+                    <div class="summary-grid" id="listingSummary">
+                        <!-- Dynamically filled by JavaScript -->
+                    </div>
+                    
+                    <div class="safety-tips">
+                        <h3>Final Safety Checks</h3>
+                        <ul>
+                            <li>Verify all information is accurate and up-to-date</li>
+                            <li>Review images to ensure they represent your property well</li>
+                            <li>Confirm the asking price aligns with market values</li>
+                            <li>Understand our verification process will begin after submission</li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+
+            <div class="buttons-container">
+                <button type="button" class="btn btn-outline" id="prevStep" style="display: none">Previous</button>
+                <button type="button" class="btn btn-primary" id="nextStep">Next</button>
+                <button type="submit" class="btn btn-primary" id="submitForm" style="display: none">Submit Listing</button>
+            </div>
+        </form>
+    </div>
+
+    <script>
+        // Image upload handling
+        const dropZone = document.getElementById('dropZone');
+        const imageUpload = document.getElementById('imageUpload');
+        const imagePreview = document.getElementById('imagePreview');
+        let uploadedImages = [];
+
+        dropZone.addEventListener('dragover', (e) => {
+            e.preventDefault();
+            dropZone.style.borderColor = '#2563eb';
+        });
+
+        dropZone.addEventListener('dragleave', () => {
+            dropZone.style.borderColor = '#e2e8f0';
+        });
+
+        dropZone.addEventListener('drop', (e) => {
+            e.preventDefault();
+            dropZone.style.borderColor = '#e2e8f0';
+            const files = e.dataTransfer.files;
+            handleFiles(files);
+        });
+
+        imageUpload.addEventListener('change', (e) => {
+            handleFiles(e.target.files);
+        });
+
+        function handleFiles(files) {
+            if (uploadedImages.length + files.length > 20) {
+                alert('Maximum 20 images allowed');
+                return;
+            }
+
+            Array.from(files).forEach(file => {
+                if (file.size > 5 * 1024 * 1024) {
+                    alert(`${file.name} is too large. Maximum size is 5MB`);
+                    return;
+                }
+
+                if (!file.type.startsWith('image/')) {
+                    alert(`${file.name} is not an image`);
+                    return;
+                }
+
+                const reader = new FileReader();
+                reader.onload = (e) => {
+                    const imageData = {
+                        file: file,
+                        preview: e.target.result
+                    };
+                    uploadedImages.push(imageData);
+                    updateImagePreview();
+                };
+                reader.readAsDataURL(file);
+            });
+        }
+
+        function updateImagePreview() {
+            imagePreview.innerHTML = '';
+            uploadedImages.forEach((image, index) => {
+                const div = document.createElement('div');
+                div.className = 'image-preview-item';
+                div.innerHTML = `
+                    <img src="${image.preview}" alt="Property image ${index + 1}">
+                    <button type="button" class="remove-image" onclick="removeImage(${index})">×</button>
+                `;
+                imagePreview.appendChild(div);
+            });
+        }
+
+        function removeImage(index) {
+            uploadedImages.splice(index, 1);
+            updateImagePreview();
+        }
+
+        // Form submission
+        document.getElementById('propertyListingForm').addEventListener('submit', (e) => {
+            e.preventDefault();
+            
+            // Create FormData object
+            const formData = new FormData(e.target);
+            uploadedImages.forEach((image, index) => {
+                formData.append(`image${index}`, image.file);
+            });
+
+            // Simulate form submission
+            alert('Property listing submitted successfully!');
+        });
+        
+        let currentStep = 1;
+        const totalSteps = 4;
+        const formData = {};
+
+        // Navigation functions
+        function updateProgressBar() {
+            document.querySelectorAll('.progress-step').forEach(step => {
+                const stepNumber = parseInt(step.dataset.step);
+                step.classList.remove('active', 'completed');
+                if (stepNumber === currentStep) {
+                    step.classList.add('active');
+                } else if (stepNumber < currentStep) {
+                    step.classList.add('completed');
+                }
+            });
+        }
+
+        function showStep(step) {
+            document.querySelectorAll('.form-section').forEach(section => {
+                section.classList.remove('active');
+            });
+            document.querySelector(`.form-section[data-step="${step}"]`).classList.add('active');
+            
+            // Update buttons
+            const prevButton = document.getElementById('prevStep');
+            const nextButton = document.getElementById('nextStep');
+            const submitButton = document.getElementById('submitForm');
+            
+            prevButton.style.display = step === 1 ? 'none' : 'block';
+            nextButton.style.display = step === totalSteps ? 'none' : 'block';
+            submitButton.style.display = step === totalSteps ? 'block' : 'none';
+        }
+
+        // Validation functions
+        function validateStep(step) {
+            const section = document.querySelector(`.form-section[data-step="${step}"]`);
+            const inputs = section.querySelectorAll('input[required], select[required], textarea[required]');
+            let isValid = true;
+
+            inputs.forEach(input => {
+                if (!input.value.trim()) {
+                    isValid = false;
+                    input.classList.add('error');
+                    input.nextElementSibling.style.display = 'block';
+                } else {
+                    input.classList.remove('error');
+                    input.nextElementSibling.style.display = 'none';
+                }
+            });
+
+            if (step === 3 && uploadedImages.length === 0) {
+                isValid = false;
+                alert('Please upload at least one image of your property');
+            }
+
+            return isValid;
+        }
+
+        // Event listeners
+        document.getElementById('nextStep').addEventListener('click', () => {
+            if (validateStep(currentStep)) {
+                saveStepData(currentStep);
+                currentStep++;
+                showStep(currentStep);
+                updateProgressBar();
+            }
+        });
+
+        document.getElementById('prevStep').addEventListener('click', () => {
+            currentStep--;
+            showStep(currentStep);
+            updateProgressBar();
+        });
+
+        // Save and update data
+        function saveStepData(step) {
+            const section = document.querySelector(`.form-section[data-step="${step}"]`);
+            const inputs = section.querySelectorAll('input, select, textarea');
+            
+            inputs.forEach(input => {
+                formData[input.id] = input.value;
+            });
+
+            if (step === totalSteps - 1) {
+                updateSummary();
+            }
+        }
+
+        function updateSummary() {
+            const summaryHTML = `
+                <div class="summary-item">
+                    <h4>Basic Information</h4>
+                    <p>Property Type: ${formData.propertyType}</p>
+                    <p>Address: ${formData.address}</p>
+                    <p>Price: $${parseFloat(formData.price).toLocaleString()}</p>
+                </div>
+                <div class="summary-item">
+                    <h4>Property Details</h4>
+                    <p>Bedrooms: ${formData.bedrooms}</p>
+                    <p>Bathrooms: ${formData.bathrooms}</p>
+                    <p>Square Feet: ${formData.squareFeet}</p>
+                </div>
+                <div class="summary-item">
+                    <h4>Description</h4>
+                    <p>${formData.description}</p>
+                </div>
+                <div class="summary-item">
+                    <h4>Photos</h4>
+                    <p>${uploadedImages.length} images uploaded</p>
+                </div>
+            `;
+            document.getElementById('listingSummary').innerHTML = summaryHTML;
+        }
+
+        // Form submission
+        document.getElementById('propertyListingForm').addEventListener('submit', (e) => {
+            e.preventDefault();
+            if (validateStep(currentStep)) {
+                // Here you would normally send the data to your server
+                console.log('Form Data:', formData);
+                console.log('Images:', uploadedImages);
+                alert('Property listing submitted successfully!');
+            }
+        });
+
+        // Initialize progress bar
+        updateProgressBar();
+    </script>
+</body>
+</html>

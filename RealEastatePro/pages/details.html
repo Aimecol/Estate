@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>House Details</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+    />
+    <link rel="stylesheet" href="../css/nav.css" />
+    <link rel="stylesheet" href="../css/detail.css" />
+  </head>
+  <body>
+    <header class="header">
+      <div class="nav-container">
+        <a href="../index.html" class="logo">RealEstatePro</a>
+        <nav>
+          <ul class="nav-links">
+            <li><a href="../index.html">Home</a></li>
+            <li><a href="./houses.html">Houses</a></li>
+            <li><a href="./about.html">About Us</a></li>
+            <li><a href="./contact.html">Contact</a></li>
+            <li><a href="./login.html" class="cta">Login</a></li>
+            <li>
+              <a href="./register.html" class="cta secondary">Register</a>
+            </li>
+          </ul>
+        </nav>
+        <div class="burger">
+          <div class="line"></div>
+          <div class="line"></div>
+          <div class="line"></div>
+        </div>
+      </div>
+    </header>
+
+    <!-- Hero Section -->
+    <header class="image-gallery">
+      <div class="main-image">
+        <img
+          id="current-image"
+          src="../images/05080e9f303b26bb4917f8f30360be87.jpg"
+          alt="Main House Image"
+        />
+      </div>
+      <div class="thumbnail-images">
+        <img
+          class="thumbnail"
+          src="../images/05080e9f303b26bb4917f8f30360be87.jpg"
+          alt="House Image 1"
+        />
+        <img
+          class="thumbnail"
+          src="../images/08-16-22_Home-Tour_Kelly-Martin-Interiors_6.jpg"
+          alt="House Image 2"
+        />
+        <img
+          class="thumbnail"
+          src="../images/590772274.jpg"
+          alt="House Image 3"
+        />
+        <img
+          class="thumbnail"
+          src="../images/Three-bedroom-concept-house-plans.jpg"
+          alt="House Image 4"
+        />
+      </div>
+    </header>
+
+    <!-- House Details Section -->
+    <main class="house-details">
+      <div class="container">
+        <h1>Modern Family House</h1>
+        <p class="price">$450,000</p>
+        <p class="location">
+          <i class="fas fa-map-marker-alt"></i> 123 Green Street, Springfield
+        </p>
+
+        <div class="details">
+          <div class="detail-item">
+            <i class="fas fa-expand"></i> Size: 2,500 sq ft
+          </div>
+          <div class="detail-item"><i class="fas fa-bed"></i> Bedrooms: 4</div>
+          <div class="detail-item">
+            <i class="fas fa-bath"></i> Bathrooms: 3
+          </div>
+        </div>
+
+        <p class="description">
+          This stunning family home offers a spacious layout with modern
+          amenities. It features a beautiful garden, large living spaces, and is
+          located in a quiet, friendly neighborhood.
+        </p>
+
+        <button class="btn-buy-now">Buy Now</button>
+      </div>
+    </main>
+
+    <!-- Seller Information -->
+    <section class="seller-info">
+      <div class="container">
+        <h2>Seller Information</h2>
+        <p><i class="fas fa-user"></i> John Doe</p>
+        <p><i class="fas fa-phone"></i> +1 234 567 890</p>
+        <p><i class="fas fa-envelope"></i> john.doe@example.com</p>
+      </div>
+    </section>
+
+    <footer>
+      <div class="footer-container">
+        <!-- Column 1: Logo and About -->
+        <div class="footer-col about">
+          <a href="#" class="logo">RealEstatePro</a>
+          <p>
+            RealEstatePro connects buyers and sellers with the best properties
+            worldwide. Find your dream home or list your property with ease.
+          </p>
+          <div class="social-icons">
+            <a href="#"><i class="fab fa-facebook-f"></i></a>
+            <a href="#"><i class="fab fa-twitter"></i></a>
+            <a href="#"><i class="fab fa-instagram"></i></a>
+            <a href="#"><i class="fab fa-linkedin-in"></i></a>
+          </div>
+        </div>
+
+        <!-- Column 2: Quick Links -->
+        <div class="footer-col quick-links">
+          <h4>Quick Links</h4>
+          <ul>
+            <li>
+              <a href="../index.html">Home</a>
+            </li>
+            <li>
+              <a href="./houses.html">Houses</a>
+            </li>
+            <li>
+              <a href="#sell">Add a Listing</a>
+            </li>
+            <li>
+              <a href="./about.html">About Us</a>
+            </li>
+            <li>
+              <a href="./contact.html">Contact</a>
+            </li>
+          </ul>
+        </div>
+
+        <!-- Column 3: Contact Info -->
+        <div class="footer-col contact-info">
+          <h4>Contact Us</h4>
+          <p><i class="fas fa-map-marker-alt"></i> Kigali, Rwanda</p>
+          <p><i class="fas fa-phone-alt"></i> +250 788 123 456</p>
+          <p><i class="fas fa-envelope"></i> support@realestatepro.com</p>
+        </div>
+
+        <!-- Column 4: Newsletter -->
+        <div class="footer-col newsletter">
+          <h4>Stay Updated</h4>
+          <p>
+            Subscribe to our newsletter for the latest updates and exclusive
+            offers.
+          </p>
+          <form action="#" class="newsletter-form">
+            <input type="email" placeholder="Your email address" required />
+            <button type="submit"><i class="fas fa-paper-plane"></i></button>
+          </form>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <p>&copy; 2024 RealEstatePro. All rights reserved.</p>
+        <p>
+          <a href="#terms">Terms & Conditions</a> |
+          <a href="#privacy">Privacy Policy</a>
+        </p>
+      </div>
+    </footer>
+
+    <script src="../js/nav.js"></script>
+    <script src="../js/detail.js"></script>
+  </body>
+</html>

@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Real Estate Platform</title>
+    <link rel="stylesheet" href="./css/nav.css" />
+    <link rel="stylesheet" href="./css/styles.css" />
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.1/css/all.min.css"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <header class="header">
+      <div class="nav-container">
+        <a href="./index.html" class="logo">RealEstatePro</a>
+        <nav>
+          <ul class="nav-links">
+            <li><a href="./index.html">Home</a></li>
+            <li><a href="./pages/houses.html">Houses</a></li>
+            <li><a href="./pages/about.html">About Us</a></li>
+            <li><a href="./pages/contact.html">Contact</a></li>
+            <li><a href="./pages/login.html" class="cta">Login</a></li>
+            <li><a href="./pages/register.html" class="cta secondary">Register</a></li>
+          </ul>
+        </nav>
+        <div class="burger">
+          <div class="line"></div>
+          <div class="line"></div>
+          <div class="line"></div>
+        </div>
+      </div>
+    </header>
+
+    <!-- <header>
+      <div class="nav-container">
+        <a href="#" class="logo">RealEstatePro</a>
+        <nav>
+          <ul class="nav-links">
+            <li>
+              <a href="#home">Home</a>
+            </li>
+            <li>
+              <a href="#houses">Browse Houses</a>
+            </li>
+            <li>
+              <a href="#dashboard">My Dashboard</a>
+            </li>
+            <li>
+              <a href="#sell"
+                ><i class="fas fa-plus-circle"></i> Add a Listing</a
+              >
+            </li>
+            <li>
+              <a href="#messages">Messages</a>
+            </li>
+            <li class="profile-dropdown">
+              <a href="#profile"
+                ><i class="fas fa-user-circle"></i> Profile
+                <i class="fas fa-caret-down"></i
+              ></a>
+              <ul class="dropdown">
+                <li>
+                  <a href="#edit-profile"
+                    ><i class="fas fa-edit"></i> Edit Profile</a
+                  >
+                </li>
+                <li>
+                  <a href="#change-password"
+                    ><i class="fas fa-key"></i> Change Password</a
+                  >
+                </li>
+                <li>
+                  <a href="#payment-settings"
+                    ><i class="fas fa-credit-card"></i> Payment Settings</a
+                  >
+                </li>
+                <li>
+                  <a href="#billing"
+                    ><i class="fas fa-file-invoice"></i> Billing</a
+                  >
+                </li>
+                <li>
+                  <a href="#support"><i class="fas fa-headset"></i> Support</a>
+                </li>
+              </ul>
+            </li>
+            <li>
+              <a href="#logout" class="cta logout"
+                ><i class="fas fa-sign-out-alt"></i> Logout</a
+              >
+            </li>
+          </ul>
+        </nav>
+        <div class="burger">
+          <div class="line"></div>
+          <div class="line"></div>
+          <div class="line"></div>
+        </div>
+      </div>
+    </header> -->
+
+    <main>
+      <section class="hero-section">
+        <div class="hero-content">
+          <h1>Find Your Dream Home Today</h1>
+          <p>
+            Browse through a wide range of properties tailored to your needs.
+          </p>
+          <a href="#houses" class="cta">Browse Houses</a>
+        </div>
+        <div class="hero-image">
+          <img src="./images/luxury-house-7-3-1024x576.jpg" alt="Luxury house illustration" />
+        </div>
+      </section>
+
+      <section class="recent-uploads">
+        <h2>
+          Recently Added Listings <span><a href="#">view all</a></span>
+        </h2>
+        <div class="card-container">
+          <!-- Example of a property card -->
+          <div class="property-card">
+            <img src="./images/Three-bedroom-concept-house-plans.jpg" alt="Modern house" />
+            <div class="property-details">
+              <h3>3 Bedroom Modern House</h3>
+              <p><i class="fas fa-map-marker-alt"></i> Kigali, Rwanda</p>
+              <p class="price">$250,000</p>
+              <a href="./pages/details.html" class="view-more">View Details</a>
+            </div>
+          </div>
+          <div class="property-card">
+            <img src="./images/Modern-house-exterior-elevation-design-in-Dubai-with-a-landscape.webp" alt="Modern Villa" />
+            <div class="property-details">
+              <h3>Modern Villa</h3>
+              <p>
+                <i class="fas fa-map-marker-alt"></i> Kigali, Rwanda
+              </p>
+              <p class="price">$500,000</p>
+              <a href="./pages/details.html" class="view-more">View Details</a>
+            </div>
+          </div>
+          <div class="property-card">
+            <img src="./images/05080e9f303b26bb4917f8f30360be87.jpg" alt="Luxury Apartment" />
+            <div class="property-details">
+              <h3>Luxury Apartment</h3>
+              <p>
+                <i class="fas fa-map-marker-alt"></i> Nairobi, Kenya
+              </p>
+              <p class="price">$750,000</p>
+              <a href="./pages/details.html" class="view-more">View Details</a>
+            </div>
+          </div>
+          <!-- Repeat property-card structure -->
+        </div>
+      </section>
+
+      <section class="advertisement ad-style-one">
+        <h2>Your Dream Home Awaits</h2>
+        <p>Discover top-notch properties at unbeatable prices.</p>
+        <a href="#browse" class="cta">Explore Now</a>
+      </section>
+
+      <section class="sales-discounts">
+        <h2>
+          Exclusive Sales & Discounts <span><a href="#">view all</a></span>
+        </h2>
+        <div class="card-container">
+          <!-- Example of a discounted property -->
+          <div class="property-card">
+            <img src="./images/25cf654358d7812a07902fa42f249dedbec8eb058bdda541c88b9e3b317a93d9.jpg" alt="Discounted house" />
+            <div class="property-details">
+              <h3>Luxury Villa - 10% Off</h3>
+              <p><i class="fas fa-map-marker-alt"></i> Nairobi, Kenya</p>
+              <p class="price">
+                <span class="original-price">$500,000</span> $450,000
+              </p>
+              <a href="./pages/details.html" class="view-more">View Details</a>
+            </div>
+          </div>
+
+          <div class="property-card">
+            <img src="./images/590772274.jpg" alt="Beachfront Bungalow" />
+            <div class="property-details">
+              <h3>Beachfront Bungalow</h3>
+              <p>
+                <i class="fas fa-map-marker-alt"></i> Zanzibar, Tanzania
+              </p>
+              <p class="price">
+                <span class="original-price">$800,000</span> $650,000
+              </p>
+              <a href="./pages/details.html" class="view-more">View Details</a>
+            </div>
+          </div>
+          <div class="property-card">
+            <img src="./images/08-16-22_Home-Tour_Kelly-Martin-Interiors_6.jpg" alt="Cozy Cottage" />
+            <div class="property-details">
+              <h3>Cozy Cottage</h3>
+              <p>
+                <i class="fas fa-map-marker-alt"></i> Kampala, Uganda
+              </p>
+              <p class="price">
+                <span class="original-price">$400,000</span> $350,000
+              </p>
+              <a href="./pages/details.html" class="view-more">View Details</a>
+            </div>
+          </div>
+          <!-- Repeat property-card structure -->
+        </div>
+      </section>
+
+      <section class="advertisement ad-style-two">
+        <h2>Advertise with Us</h2>
+        <p>
+          Reach thousands of buyers and sellers by featuring your property here.
+        </p>
+        <a href="#sell" class="cta">Get Started</a>
+      </section>
+
+      <section class="featured-contents">
+        <h2>
+          Featured Properties <span><a href="#">view all</a></span>
+        </h2>
+        <div class="card-container">
+          <!-- Example of a featured property -->
+          <div class="property-card">
+            <img src="./images/luxury-beachfront-villas-for-sale-koh-samui-77399307.jpg" alt="Featured house" />
+            <div class="property-details">
+              <h3>Beachfront Villa</h3>
+              <p><i class="fas fa-map-marker-alt"></i> Zanzibar, Tanzania</p>
+              <p class="price">$750,000</p>
+              <a href="./pages/details.html" class="view-more">View Details</a>
+            </div>
+          </div>
+          <div class="property-card">
+            <img src="./images/SAF_Penthouse01_Living_Room-1-scaled.jpg" alt="Penthouse Suite" />
+            <div class="property-details">
+              <h3>Penthouse Suite</h3>
+              <p>
+                <i class="fas fa-map-marker-alt"></i> Johannesburg, South Africa
+              </p>
+              <p class="price">$1,200,000</p>
+              <a href="./pages/details.html" class="view-more">View Details</a>
+            </div>
+          </div>
+          <div class="property-card">
+            <img src="./images/c9baaf6d-79fb-4915-a1c6-b202ebdaee2e.webp" alt="Farmhouse" />
+            <div class="property-details">
+              <h3>Farmhouse</h3>
+              <p>
+                <i class="fas fa-map-marker-alt"></i> Arusha, Tanzania
+              </p>
+              <p class="price">$850,000</p>
+              <a href="./pages/details.html" class="view-more">View Details</a>
+            </div>
+          </div>
+          <!-- Repeat property-card structure -->
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <div class="footer-container">
+        <!-- Column 1: Logo and About -->
+        <div class="footer-col about">
+          <a href="#" class="logo">RealEstatePro</a>
+          <p>
+            RealEstatePro connects buyers and sellers with the best properties
+            worldwide. Find your dream home or list your property with ease.
+          </p>
+          <div class="social-icons">
+            <a href="#"><i class="fab fa-facebook-f"></i></a>
+            <a href="#"><i class="fab fa-twitter"></i></a>
+            <a href="#"><i class="fab fa-instagram"></i></a>
+            <a href="#"><i class="fab fa-linkedin-in"></i></a>
+          </div>
+        </div>
+
+        <!-- Column 2: Quick Links -->
+        <div class="footer-col quick-links">
+          <h4>Quick Links</h4>
+          <ul>
+            <li>
+              <a href="./index.html">Home</a>
+            </li>
+            <li>
+              <a href="./pages/houses.html"
+                >Houses</a
+              >
+            </li>
+            <li>
+              <a href="./pages/selling.html"
+                >Add a Listing</a
+              >
+            </li>
+            <li>
+              <a href="./pages/about.html">About Us</a>
+            </li>
+            <li>
+              <a href="./pages/contact.html"
+                >Contact</a
+              >
+            </li>
+          </ul>
+        </div>
+
+        <!-- Column 3: Contact Info -->
+        <div class="footer-col contact-info">
+          <h4>Contact Us</h4>
+          <p><i class="fas fa-map-marker-alt"></i> Kigali, Rwanda</p>
+          <p><i class="fas fa-phone-alt"></i> +250 788 123 456</p>
+          <p><i class="fas fa-envelope"></i> support@realestatepro.com</p>
+        </div>
+
+        <!-- Column 4: Newsletter -->
+        <div class="footer-col newsletter">
+          <h4>Stay Updated</h4>
+          <p>
+            Subscribe to our newsletter for the latest updates and exclusive
+            offers.
+          </p>
+          <form action="#" class="newsletter-form">
+            <input type="email" placeholder="Your email address" required />
+            <button type="submit"><i class="fas fa-paper-plane"></i></button>
+          </form>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <p>&copy; 2024 RealEstatePro. All rights reserved.</p>
+        <p>
+          <a href="#terms">Terms & Conditions</a> |
+          <a href="#privacy">Privacy Policy</a>
+        </p>
+      </div>
+    </footer>
+
+    <script src="./js/nav.js"></script>
+    <script src="./js/script.js"></script>
+  </body>
+</html>

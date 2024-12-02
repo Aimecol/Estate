@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Login - RealEstatePro</title>
+    <link rel="stylesheet" href="../css/login.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.1/css/all.min.css"
+    />
+  </head>
+  <body>
+    <div class="login-container">
+      <div class="login-header">
+        <h1>Welcome Back</h1>
+        <p>Please enter your details</p>
+      </div>
+      <form id="loginForm" method="post" action="">
+        <div class="input-group">
+          <input type="email" id="email" placeholder=" " required />
+          <label for="email">Email</label>
+          <div class="error-message" id="emailError">
+            Please enter a valid email address
+          </div>
+        </div>
+        <div class="input-group">
+          <input type="password" id="password" placeholder=" " required />
+          <label for="password">Password</label>
+          <span class="toggle-password"><i class="fas fa-eye"></i></span>
+          <div class="error-message" id="passwordError">
+            Password must be at least 8 characters
+          </div>
+        </div>
+
+        <div class="remember-forgot">
+          <label class="remember-me">
+            <input type="checkbox" id="remember" />
+            <span>Remember me</span>
+          </label>
+          <a href="./forgot-password.html" class="forgot-password"
+            >Forgot password?</a
+          >
+        </div>
+        <button type="submit" class="login-button">Sign in</button>
+
+        <footer>
+          <p>Don't have an account? <a href="./register.html">Register here</a>.</p>
+        </footer>
+      </form>
+    </div>
+
+    <script src="../js/login.js"></script>
+  </body>
+</html>

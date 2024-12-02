@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        :root {
+            --primary-color: #2563eb;
+            --secondary-color: #1e40af;
+            --background-color: #f8fafc;
+            --text-color: #1e293b;
+            --border-color: #e2e8f0;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Inter', sans-serif;
+        }
+
+        body {
+            background-color: var(--background-color);
+            color: var(--text-color);
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        .mortgage-header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .mortgage-header h1 {
+            font-size: 2.5rem;
+            color: var(--text-color);
+            margin-bottom: 1rem;
+        }
+
+        .mortgage-header p {
+            font-size: 1.1rem;
+            color: #64748b;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .calculator-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+
+        .calculator-form {
+            background: white;
+            padding: 2rem;
+            border-radius: 1rem;
+            box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1);
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 500;
+        }
+
+        .form-group input {
+            width: 100%;
+            padding: 0.75rem;
+            border: 1px solid var(--border-color);
+            border-radius: 0.5rem;
+            font-size: 1rem;
+        }
+
+        .range-slider {
+            width: 100%;
+            margin-top: 0.5rem;
+        }
+
+        .calculator-results {
+            background: white;
+            padding: 2rem;
+            border-radius: 1rem;
+            box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1);
+        }
+
+        .result-card {
+            text-align: center;
+            padding: 1.5rem;
+            border: 1px solid var(--border-color);
+            border-radius: 0.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .result-card h3 {
+            font-size: 1.1rem;
+            color: #64748b;
+            margin-bottom: 0.5rem;
+        }
+
+        .result-card .amount {
+            font-size: 2rem;
+            font-weight: 600;
+            color: var(--primary-color);
+        }
+
+        .chart-container {
+            margin-top: 2rem;
+            height: 300px;
+        }
+
+        .mortgage-info {
+            background: white;
+            padding: 2rem;
+            border-radius: 1rem;
+            margin-top: 2rem;
+            box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1);
+        }
+
+        .info-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .info-card {
+            padding: 1.5rem;
+            border: 1px solid var(--border-color);
+            border-radius: 0.5rem;
+        }
+
+        .info-card h3 {
+            font-size: 1.2rem;
+            margin-bottom: 1rem;
+            color: var(--primary-color);
+        }
+
+        .btn-calculate {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 0.75rem 1.5rem;
+            border: none;
+            border-radius: 0.5rem;
+            font-size: 1rem;
+            cursor: pointer;
+            width: 100%;
+            transition: background-color 0.3s ease;
+        }
+
+        .btn-calculate:hover {
+            background-color: var(--secondary-color);
+        }
+
+        @media (max-width: 768px) {
+            .calculator-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .info-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="mortgage-header">
+            <h1>Mortgage Calculator</h1>
+            <p>Plan your home purchase with our advanced mortgage calculator. Get detailed insights into your monthly payments and loan breakdown.</p>
+        </div>
+
+        <div class="calculator-grid">
+            <div class="calculator-form">
+                <form id="mortgageForm">
+                    <div class="form-group">
+                        <label for="homePrice">Home Price</label>
+                        <input type="number" id="homePrice" min="0" step="1000" value="300000">
+                        <input type="range" class="range-slider" id="homePriceRange" min="50000" max="1000000" step="1000" value="300000">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="downPayment">Down Payment</label>
+                        <input type="number" id="downPayment" min="0" step="1000" value="60000">
+                        <input type="range" class="range-slider" id="downPaymentRange" min="0" max="200000" step="1000" value="60000">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="loanTerm">Loan Term (Years)</label>
+                        <input type="number" id="loanTerm" min="5" max="30" value="30">
+                        <input type="range" class="range-slider" id="loanTermRange" min="5" max="30" step="5" value="30">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="interestRate">Interest Rate (%)</label>
+                        <input type="number" id="interestRate" min="0" max="15" step="0.1" value="3.5">
+                        <input type="range" class="range-slider" id="interestRateRange" min="0" max="15" step="0.1" value="3.5">
+                    </div>
+
+                    <button type="submit" class="btn-calculate">Calculate Mortgage</button>
+                </form>
+            </div>
+
+            <div class="calculator-results">
+                <div class="result-card">
+                    <h3>Monthly Payment</h3>
+                    <div class="amount" id="monthlyPayment">$1,347</div>
+                </div>
+
+                <div class="result-card">
+                    <h3>Total Loan Amount</h3>
+                    <div class="amount" id="totalLoan">$240,000</div>
+                </div>
+
+                <div class="result-card">
+                    <h3>Total Interest Paid</h3>
+                    <div class="amount" id="totalInterest">$245,028</div>
+                </div>
+
+                <div class="chart-container" id="paymentChart"></div>
+            </div>
+        </div>
+
+        <div class="mortgage-info">
+            <h2>Understanding Your Mortgage</h2>
+            <div class="info-grid">
+                <div class="info-card">
+                    <h3>Down Payment</h3>
+                    <p>A larger down payment reduces your monthly payments and total interest paid. Typically, a 20% down payment helps avoid private mortgage insurance (PMI).</p>
+                </div>
+
+                <div class="info-card">
+                    <h3>Loan Terms</h3>
+                    <p>While a 30-year term offers lower monthly payments, a 15-year term typically has lower interest rates and significant savings on total interest paid.</p>
+                </div>
+
+                <div class="info-card">
+                    <h3>Interest Rates</h3>
+                    <p>Interest rates vary based on your credit score, market conditions, and loan type. Even a small difference in rate can significantly impact your total cost.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.7.0/chart.min.js"></script>
+    <script>
+        // Sync range inputs with number inputs
+        function syncInputs(inputId, rangeId) {
+            const input = document.getElementById(inputId);
+            const range = document.getElementById(rangeId);
+
+            input.addEventListener('input', () => {
+                range.value = input.value;
+                calculateMortgage();
+            });
+
+            range.addEventListener('input', () => {
+                input.value = range.value;
+                calculateMortgage();
+            });
+        }
+
+        syncInputs('homePrice', 'homePriceRange');
+        syncInputs('downPayment', 'downPaymentRange');
+        syncInputs('loanTerm', 'loanTermRange');
+        syncInputs('interestRate', 'interestRateRange');
+
+        // Calculate mortgage
+        function calculateMortgage() {
+            const homePrice = parseFloat(document.getElementById('homePrice').value);
+            const downPayment = parseFloat(document.getElementById('downPayment').value);
+            const loanTerm = parseFloat(document.getElementById('loanTerm').value);
+            const interestRate = parseFloat(document.getElementById('interestRate').value) / 100 / 12;
+
+            const principal = homePrice - downPayment;
+            const numberOfPayments = loanTerm * 12;
+
+            const monthlyPayment = (principal * interestRate * Math.pow(1 + interestRate, numberOfPayments)) / 
+                                 (Math.pow(1 + interestRate, numberOfPayments) - 1);
+
+            const totalPaid = monthlyPayment * numberOfPayments;
+            const totalInterest = totalPaid - principal;
+
+            // Update results
+            document.getElementById('monthlyPayment').textContent = `$${monthlyPayment.toFixed(2)}`;
+            document.getElementById('totalLoan').textContent = `$${principal.toLocaleString()}`;
+            document.getElementById('totalInterest').textContent = `$${totalInterest.toFixed(2)}`;
+
+            updateChart(principal, totalInterest);
+        }
+
+        // Initialize and update chart
+        let paymentChart;
+
+        function updateChart(principal, totalInterest) {
+            const ctx = document.getElementById('paymentChart').getContext('2d');
+
+            if (paymentChart) {
+                paymentChart.destroy();
+            }
+
+            paymentChart = new Chart(ctx, {
+                type: 'doughnut',
+                data: {
+                    labels: ['Principal', 'Total Interest'],
+                    datasets: [{
+                        data: [principal, totalInterest],
+                        backgroundColor: ['#2563eb', '#60a5fa'],
+                        borderWidth: 0
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        legend: {
+                            position: 'bottom'
+                        }
+                    }
+                }
+            });
+        }
+
+        // Initialize calculator
+        document.getElementById('mortgageForm').addEventListener('submit', (e) => {
+            e.preventDefault();
+            calculateMortgage();
+        });
+
+        // Calculate initially
+        calculateMortgage();
+    </script>
+</body>
+</html>
